@@ -12,8 +12,8 @@ See ``test/java/com/truward/time/UtcTimeTest.java``
 ```java
 UtcTime time = UtcTime.now();     // creates immutable UTC time primitive initialized with System.currentTimeMills()
 time = time.add(UtcTime.days(1)); // adds one day to the given time
-Date date = time.toDate();        // converts time to java.util.Date
-Calendar cal = time.toCalendar(); // converts time to java.util.Calendar - UTC time
+Date date = time.asDate();        // converts time to java.util.Date
+Calendar cal = time.asCalendar(); // converts time to java.util.Calendar - UTC time
 ```
 
 ## Maven
