@@ -3,6 +3,7 @@ package com.truward.time;
 import org.junit.Test;
 
 import java.util.Calendar;
+import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
@@ -66,5 +67,12 @@ public final class UtcTimeTest {
     final UtcTime now = UtcTime.now();
     final String value = now.toString();
     assertNotNull(value);
+  }
+
+  @Test
+  public void shouldCloneTimeZone() {
+    final TimeZone z1 = UtcTime.newUtcTimeZone();
+    assertEquals(z1, UtcTime.newUtcTimeZone());
+    assertFalse("Clone should make a new copy", z1 == UtcTime.newUtcTimeZone());
   }
 }

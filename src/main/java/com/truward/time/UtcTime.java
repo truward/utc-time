@@ -17,8 +17,11 @@ public final class UtcTime {
   /**
    * NB: this value is mutable, it should not be made public and it should not be modified in this class.
    */
-  private static TimeZone UTC_TIME_ZONE = TimeZone.getTimeZone("UTC");
+  private static final TimeZone UTC_TIME_ZONE = TimeZone.getTimeZone("UTC");
 
+  /**
+   * Count of milliseconds in a day.
+   */
   public static final long MILLIS_IN_DAY = 1000L * 60L * 60L * 24L;
 
   private long time;
@@ -28,7 +31,7 @@ public final class UtcTime {
   }
 
   /**
-   * Retrieves UTC time zone. This is not a static member, because the returned value is mutable/\
+   * Retrieves UTC time zone. This is not a static member, because the returned value is mutable.
    *
    * @return New instance of UTC time zone
    */
@@ -44,9 +47,7 @@ public final class UtcTime {
    */
   @Nonnull
   public static Calendar newUtcCalendar() {
-    final Calendar calendar = Calendar.getInstance(UTC_TIME_ZONE);
-    calendar.setTimeZone(newUtcTimeZone());
-    return calendar;
+    return Calendar.getInstance(UTC_TIME_ZONE);
   }
 
   @Nonnull
