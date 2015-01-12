@@ -60,4 +60,11 @@ public final class UtcTimeTest {
     final Calendar calendar = UtcTime.days(1).asCalendar();
     assertEquals(TimeUnit.DAYS.toMillis(1L), calendar.getTime().getTime());
   }
+
+  @Test
+  public void shouldCalculateToString() {
+    final UtcTime now = UtcTime.now();
+    final String value = now.toString();
+    assertNotNull(value);
+  }
 }
