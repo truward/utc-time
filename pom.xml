@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.truward.time</groupId>
   <artifactId>utc-time</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <packaging>jar</packaging>
   <name>Utc Time Manipulation</name>
 
@@ -22,7 +21,7 @@
     <connection>scm:git:git@github.com:truward/utc-time.git</connection>
     <developerConnection>scm:git:git@github.com:truward/utc-time.git</developerConnection>
     <url>git@github.com:truward/utc-time.git</url>
-    <tag>HEAD</tag>
+    <tag>utc-time-1.0.1</tag>
   </scm>
 
   <licenses>
