@@ -4,7 +4,7 @@
 
   <groupId>com.truward.time</groupId>
   <artifactId>utc-time-parent</artifactId>
-  <version>1.0.4-SNAPSHOT</version>
+  <version>1.0.4</version>
   <packaging>pom</packaging>
   <description>
     Micro library for an entity, that represents a class for working with UTC time.
@@ -27,7 +27,7 @@
     <connection>scm:git:git@github.com:truward/utc-time.git</connection>
     <developerConnection>scm:git:git@github.com:truward/utc-time.git</developerConnection>
     <url>git@github.com:truward/utc-time.git</url>
-    <tag>HEAD</tag>
+    <tag>utc-time-parent-1.0.4</tag>
   </scm>
 
   <licenses>
