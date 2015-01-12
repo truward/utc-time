@@ -9,7 +9,7 @@ This is performs an automated process of releasing project artifacts, including 
 updates, signing and publishing artifacts.
 
 ``
-$ mvn release:clean release:prepare -P release 
+$ mvn release:clean release:prepare -P release
 
 $ mvn release:perform -P release
 ``
