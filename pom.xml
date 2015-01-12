@@ -1,10 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.truward.time</groupId>
-  <artifactId>utc-time</artifactId>
-  <version>1.0.3-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <artifactId>utc-time-parent</artifactId>
+  <version>1.0.4-SNAPSHOT</version>
+  <packaging>pom</packaging>
   <description>
     Micro library for an entity, that represents a class for working with UTC time.
     For those who doesn't need (or like) sofisticated libraries like joda time.
@@ -62,27 +63,59 @@
     </repository>
   </distributionManagement>
 
+  <modules>
+    <module>utc-time</module>
+    <module>utc-time-sql</module>
+  </modules>
+
+  <dependencyManagement>
+
+    <dependencies>
+      <dependency>
+        <groupId>com.truward.time</groupId>
+        <artifactId>utc-time</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <!-- JSR-305 for @NotNull etc. -->
+      <dependency>
+        <groupId>com.google.code.findbugs</groupId>
+        <artifactId>jsr305</artifactId>
+        <version>1.3.9</version>
+      </dependency>
+
+      <!-- Test scope -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.8.2</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-all</artifactId>
+        <version>1.9.0</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
-    <!-- JSR-305 for @NotNull etc. -->
+    <!-- Automatically added dependencies -->
     <dependency>
       <groupId>com.google.code.findbugs</groupId>
       <artifactId>jsr305</artifactId>
-      <version>1.3.9</version>
       <scope>provided</scope>
     </dependency>
 
-    <!-- test scope -->
+    <!-- Test scope -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.2</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-all</artifactId>
-      <version>1.9.0</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -168,4 +201,3 @@
     </profile>
   </profiles>
 </project>
-
