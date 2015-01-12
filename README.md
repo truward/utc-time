@@ -24,6 +24,32 @@ In order to include this library to your project add the following to your ``pom
 <dependency>
   <groupId>com.truward.time</groupId>
   <artifactId>utc-time</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.4</version>
 </dependency>
+```
+
+## JDBC mappings
+
+In order to use JDBC mappings, include ``utc-time-sql`` to your project:
+
+```xml
+<dependency>
+  <groupId>com.truward.time</groupId>
+  <artifactId>utc-time-sql</artifactId>
+  <version>1.0.4</version>
+</dependency>
+```
+
+Then, in order to convert UtcTime to and from result set use the following:
+
+```java
+// when inserting data
+final UtcTime time = getUtcTimeFromSomewhere();
+... time.asCalendar() ... // JDBC drivers understand java.util.Calendar instances
+
+// when retrieving data
+final ResultSet rs = ourResultSet;
+final UtcTime time = UtcTimeSqlUtil.getUtcTime(rs, "timestampColumnName");
+// or alternatively use getNullableUtcTime:
+final UtcTime another = UtcTimeSqlUtil.getNullableUtcTime(rs, "timestampColumnName", UtcTime.days(1));
 ```
