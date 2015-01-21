@@ -28,7 +28,7 @@ public final class UtcTimeTest {
 
   @Test
   public void shouldGetNow() {
-    assertTrue("Too big difference in now() calculation",
+    assertTrue("Too big difference in currentTime() calculation",
         Math.abs(System.currentTimeMillis() - UtcTime.now().getTime()) < 5000L);
   }
 
