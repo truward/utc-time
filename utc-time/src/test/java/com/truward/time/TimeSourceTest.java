@@ -4,6 +4,9 @@ import com.truward.time.support.HighPrecisionTimeSource;
 import com.truward.time.support.StandardTimeSource;
 import org.junit.Test;
 
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -23,6 +26,20 @@ public final class TimeSourceTest {
     testInsignificantDifferenceOfSubsequentCurrentTimeCalls(HighPrecisionTimeSource.INSTANCE);
   }
 
+  @Test
+  public void shouldReturnMilliseconds() {
+    final TimeSource ts = StandardTimeSource.INSTANCE;
+    final long millis = ts.currentTime();
+    assertEquals(millis, TimeUnit.MILLISECONDS.convert(millis, ts.getTimeUnit()));
+  }
+
+  @Test
+  public void shouldReturnNanoseconds() {
+    final TimeSource ts = HighPrecisionTimeSource.INSTANCE;
+    final long nanos = ts.currentTime();
+    assertEquals(nanos, TimeUnit.NANOSECONDS.convert(nanos, ts.getTimeUnit()));
+  }
+
   //
   // Private
   //
@@ -30,9 +47,10 @@ public final class TimeSourceTest {
   private void testInsignificantDifferenceOfSubsequentCurrentTimeCalls(TimeSource timeSource) {
     final long time1 = timeSource.currentTime();
     final long time2 = timeSource.currentTime();
+    final long delta = timeSource.getTimeUnit().convert(100L, TimeUnit.MILLISECONDS);
 
     // difference between current time should be less than 100 msec (based on empirical evidence)
     assertTrue("Time retrieved from different time sources should differ insignificantly",
-        Math.abs(time1 - time2) < 100L);
+        Math.abs(time1 - time2) < delta);
   }
 }

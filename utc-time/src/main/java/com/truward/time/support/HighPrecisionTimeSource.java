@@ -2,6 +2,8 @@ package com.truward.time.support;
 
 import com.truward.time.TimeSource;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Implementation of {@link com.truward.time.TimeSource} that uses {@link System#nanoTime()} in order
  * to retrieve current time. Note, that the returned value is measured in nanoseconds.
@@ -16,6 +18,11 @@ public final class HighPrecisionTimeSource implements TimeSource {
 
   @Override
   public long currentTime() {
-    return System.nanoTime() / 1000L;
+    return System.nanoTime();
+  }
+
+  @Override
+  public TimeUnit getTimeUnit() {
+    return TimeUnit.NANOSECONDS;
   }
 }

@@ -2,6 +2,8 @@ package com.truward.time.support;
 
 import com.truward.time.TimeSource;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Implementation of {@link com.truward.time.TimeSource} that uses {@link System#currentTimeMillis()} in order
  * to retrieve current time.
@@ -22,5 +24,10 @@ public final class StandardTimeSource implements TimeSource {
   @Override
   public long currentTime() {
     return System.currentTimeMillis();
+  }
+
+  @Override
+  public TimeUnit getTimeUnit() {
+    return TimeUnit.MILLISECONDS;
   }
 }

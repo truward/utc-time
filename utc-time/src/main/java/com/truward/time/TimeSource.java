@@ -1,5 +1,7 @@
 package com.truward.time;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Abstraction over the different ways to retrieve current time for <strong>measuring time lapses</strong>.
  *
@@ -27,4 +29,9 @@ public interface TimeSource {
    * @return Current time.
    */
   long currentTime();
+
+  /**
+   * @return Time unit, used by the underlying timer.
+   */
+  TimeUnit getTimeUnit();
 }
