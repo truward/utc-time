@@ -36,7 +36,7 @@ In order to use JDBC mappings, include ``utc-time-sql`` to your project:
 <dependency>
   <groupId>com.truward.time</groupId>
   <artifactId>utc-time-sql</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.6</version>
 </dependency>
 ```
 
